@@ -1,0 +1,74 @@
+<p>ram works! from ram component selector changed to raghava</p>
+
+
+=================================================================<br>
+
+{{sayHello}}  <br>
+
+<h1>
+==============Working on If==============
+</h1>
+<button type="button" (click)="callAddition()"  >ClickMe</button>
+
+<input type="button" value="Html Button" (click) ="callAddition()" />
+
+<button type="button" (click)="callHide()"  >Hide</button> <br>
+
+
+======*ngIf="displayResult ; else========= <br>
+
+<div *ngIf="displayResult ; else othercontent" >
+
+The result is : {{result}}
+
+
+</div> <br>
+
+<ng-template #othercontent> result not yet calculated here...</ng-template> <br>
+
+
+=====DisplayResult;then content else other_content========= <br>
+
+<div *ngIf="displayResult;then content else other_content">here is ignored</div>
+<ng-template #content>content here...</ng-template>
+<ng-template #other_content>other content here...</ng-template>
+
+<h1>=============================================</h1>
+
+=====DisplayResult;then content else if  othercontentifelse  else other_content ========= <br>
+
+<div *ngIf="displayResult;then content else othercontentifelse">here is ignored</div>
+<ng-template #content>content here...</ng-template>
+<ng-template #othercontentifelse>
+         <div *ngIf="isElseTrue;then result1 else result2"> </div>
+            <ng-template #result1> result1 printing othercontentifelse here...</ng-template>
+            <ng-template #result2> result2 printing other content here...</ng-template>
+</ng-template>
+
+
+
+
+
+<h1>
+  ==============Working on Objects====  </h1>
+
+Name :  {{human.name}} <br>
+age :  {{human.age}}  <br>
+
+
+  =============get all humans from list============= <br>
+
+
+{{this.humanList[0].name}}   {{this.humanList[0].age}} <br>
+{{this.humanList[1]}} <br>
+{{this.humanList[2]}}  <br>
+
+  =====use of *ngFor == <br>
+
+  <div  *ngFor="let h of humanList">
+
+  {{h.name}} {{h.age}}
+  </div>
+
+
+  <h1>=============================================</h1>

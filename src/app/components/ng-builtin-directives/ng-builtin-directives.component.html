@@ -1,0 +1,101 @@
+<p>ng-builtin-directives works!</p>
+
+<h1>== If For Switch==</h1>
+
+<h3> ngFor </h3>
+<div *ngFor = "let p of persons">
+
+    <div [ngStyle]="{'background-color':p.country === 'UK' ? 'green' : 'red' }">
+        {{p.name}}   {{p.age}}   {{p.country}}
+    </div>
+</div>
+
+
+<h3>  using ngFor & ngIf </h3>
+
+
+
+<ul *ngFor="let person of persons">
+
+    <li  *ngIf="person.age < 30" >
+        {{ person.name }}  {{ person.age }}
+    </li>
+  </ul>
+
+=============*ngIf="person.age > 21"===========
+  <ul *ngFor="let person of persons">
+
+    <li  *ngIf="person.age > 21" >
+        {{ person.name }}  {{ person.age }}
+    </li>
+  </ul>
+
+
+  <h3>  using ngFor & ngSwitch </h3>
+
+  <ul *ngFor="let person of persons"
+    [ngSwitch]="person.country"> 
+
+        <li *ngSwitchCase="'UK'" class="text-success">
+            {{ person.name }} ({{ person.country }})
+        </li>
+
+        <li *ngSwitchDefault class="text-failure">
+            ======personcountry is not equal to UK=====
+        </li>
+
+        </ul>
+
+
+ =====ngSwitch on age====
+        <ul *ngFor="let person of persons"
+    [ngSwitch]="person.age"> 
+
+        <li *ngSwitchCase="21" class="text-success">
+            {{ person.name }} ({{ person.country }})
+        </li>
+
+        <li *ngSwitchDefault class="text-failure">
+            ======personcountry is not equal to UK=====
+        </li>
+
+        </ul>
+
+
+
+     <h3>   ======================if else if =============== </h3>
+
+        =====DisplayResult;then content else if  othercontentifelse  else other_content ========= <br>
+
+        <div *ngIf="displayResult;then content else othercontentifelse">here is ignored</div>
+        <ng-template #content>content here...</ng-template>
+        <ng-template #othercontentifelse>
+                 <div *ngIf="isElseTrue;then result1 else result2"> </div>
+                    <ng-template #result1> result1 printing othercontentifelse here...</ng-template>
+                    <ng-template #result2> result2 printing other content here...</ng-template>
+        </ng-template>
+        
+
+        ===============[ngStyle]=======================
+
+        <div *ngFor = "let p of persons">
+
+            <div [ngStyle]="{'background-color':getColorCode(p.country) }">
+                {{p.name}}   {{p.age}}   {{p.country}}
+            </div>
+
+           
+        </div>
+        
+
+        ===============[ngClass]=======================
+
+        <h4>NgClass</h4>
+<ul *ngFor="let person of persons">
+  <li [ngClass]="{
+    'text-success':person.country === 'UK',
+    'text-primary':person.country === 'USA',
+    'text-danger':person.country === 'HK'
+  }">{{ person.name }} ({{ person.country }})  ({{ person.dob | date:'d/M/y' }})
+  </li>
+</ul>

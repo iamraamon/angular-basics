@@ -1,0 +1,131 @@
+<p>pipes works!</p>
+
+=== CurrencyPipe
+
+This pipe is used for formatting currencies. Its first argument is an abbreviation of the currency type (e.g. "EUR", "USD", and so on), like so:
+
+----
+{{ 1234.56 | currency:'CAD' }}
+----
+
+The above prints out `CA$1,234.56`.
+
+If instead of the abbreviation of `CA$` we want the currency symbol to be printed out we pass as a second parameter the string `symbol-narrow`, like so:
+
+----
+{{ 1234.56 | currency:"CAD":"symbol-narrow" }}
+----
+
+The above prints out `$1,234.56`.
+
+image::./images/currency-pipe.png[]
+
+[source,html]
+----
+<div class="card card-block">
+  <h4 class="card-title">Currency</h4>
+  <div class="card-text">
+    <p ngNonBindable>{{ 1234.56 | currency:'CAD' }}</p>
+    <p>{{ 1234.56 | currency:"CAD" }}</p>
+
+    <p ngNonBindable>{{ 1234.56 | currency:'CAD':'code' }}</p>
+    <p>{{ 1234.56 | currency:'CAD':'code'}}</p>
+
+    <p ngNonBindable>{{ 1234.56 | currency:'CAD':'symbol' }}</p>
+    <p>{{ 1234.56 | currency:'CAD':'symbol'}}</p>
+
+    <p ngNonBindable>{{ 1234.56 | currency:'CAD':'symbol-narrow' }}</p>
+    <p>{{ 1234.56 | currency:'CAD':'symbol-narrow'}}</p>
+  </div>
+</div>
+=======
+
+<div class="card card-block">
+    <h4 class="card-title">Currency</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ 1234.56 | currency:'INR' }}</p>
+      <p>{{ 1234.56 | currency:"INR" }}</p>
+  
+      <p ngNonBindable>{{ 1234.56 | currency:'INR':'code' }}</p>
+      <p>{{ 1234.56 | currency:'INR':'code'}}</p>
+  
+      <p ngNonBindable>{{ 1234.56 | currency:'INR':'symbol' }}</p>
+      <p>{{ 1234.56 | currency:'INR':'symbol'}}</p>
+  
+      <p ngNonBindable>{{ 1234.56 | currency:'INR':'symbol-narrow' }}</p>
+      <p>{{ 1234.56 | currency:'INR':'symbol-narrow'}}</p>
+    </div>
+  </div>
+  
+  ===========Date Pipe===============
+  
+<div class="card card-block">
+    <h4 class="card-title">Date</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ dateVal | date: 'shortTime' }}</p>
+      <p>{{ dateVal | date: 'shortTime' }}</p>
+  
+      <p ngNonBindable>{{ dateVal | date:'fullDate' }}</p>
+      <p>{{ dateVal | date: 'fullDate' }}</p>
+  
+      <p ngNonBindable>{{ dateVal | date: 'shortTime' }}</p>
+      <p>{{ dateVal | date: 'shortTime' }}</p>
+  
+      <p ngNonBindable>{{ dateVal | date: 'd/M/y' }}</p>
+      <p>{{ dateVal | date: 'd/M/y' }}</p>
+    </div>
+  </div>
+  
+  
+  <div class="card card-block">
+    <div class="card-text">
+      <h4 class="card-title">DecimalPipe</h4>
+      <p ngNonBindable>{{ 3.14159265 | number: '3.1-2' }}</p>
+      <p>{{ 3.14159265 | number: '3.1-2' }}</p>
+  
+      <p ngNonBindable>{{ 3.14159265 | number: '1.4-4' }}</p>
+      <p>{{ 3.14159265 | number: '1.4-4' }}</p>
+    </div>
+  </div>
+  
+  <div class="card card-block">
+    <h4 class="card-title">LowerCasePipe</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ 'RAM' | lowercase }}</p>
+      <p>{{ 'RAM' | lowercase }}</p>
+    </div>
+  </div>
+
+
+  <div class="card card-block">
+    <h4 class="card-title">UpperCasePipe</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ 'ram' | uppercase }}</p>
+      <p>{{ 'ram' | uppercase }}</p>
+    </div>
+  </div>
+
+  <div class="card card-block">
+    <h4 class="card-title">JsonPipe</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ persons }}</p>
+      <p>{{ persons }}</p>
+  
+      <p ngNonBindable>{{ persons | json }}</p>
+      <pre>{{ persons | json }}</pre>
+    </div>
+  </div>
+
+
+
+  <img [src]="imageUrl | customDefaultPipe:'https://www.eastcoastdaily.in/wp-content/uploads/2022/06/dubai-3.jpg':true"/>
+
+
+
+  <div class="card card-block">
+    <h4 class="card-title">Custom LowerCase pipe</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ 'BANGALORE' | customLowerCase }}</p>
+      <p>{{ 'BANGALORE' | customLowerCase }}</p>
+    </div>
+  </div>

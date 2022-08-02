@@ -1,0 +1,20 @@
+<p>product-list works!</p>
+
+<div *ngFor="let p of products" >
+
+    {{p.id}}   {{p.name}}   {{p.model}}   {{p.year}}
+</div>
+
+<h1>====productDomainList===</h1>
+
+<div *ngFor="let p of productDomainList" >
+
+    {{p.id}}   {{p.name}}   {{p.model}}   {{p.year}}
+</div>
+
+<h3>====productFromGuideSoftList from service===</h3>
+
+<div *ngFor="let p of productFromGuideSoftList" >
+
+    {{p.id}}   {{p.name}}   {{p.price}}   {{p.description}}
+</div>
